@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ReleaseVersion>3.0</ReleaseVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Couchbase.Lite.Enterprise" Version="3.0.0-beta02" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
+    <Folder Include="Services\" />
+    <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserProfileDemo.Core\UserProfileDemo.Core.csproj" />
+    <ProjectReference Include="..\UserProfileDemo.Repositories\UserProfileDemo.Repositories.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Converters\ByteToImageFieldConverter.xml" />
+    <None Remove="Couchbase.Lite" />
+    <None Remove="Couchbase.Lite.Enterprise" />
+  </ItemGroup>
+</Project>
