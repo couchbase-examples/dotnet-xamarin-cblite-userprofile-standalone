@@ -54,7 +54,7 @@ namespace UserProfileDemo.Core.ViewModels
             {
                 if (_saveCommand == null)
                 {
-                    _saveCommand = new Command(async() => await Save());
+                    _saveCommand = new Command(async () => await Save());
                 }
 
                 return _saveCommand;
@@ -89,7 +89,7 @@ namespace UserProfileDemo.Core.ViewModels
             }
         }
 
-        public UserProfileViewModel(IUserProfileRepository userProfileRepository, IAlertService alertService, 
+        public UserProfileViewModel(IUserProfileRepository userProfileRepository, IAlertService alertService,
                                     IMediaService mediaService, Action logoutSuccessful)
         {
             UserProfileRepository = userProfileRepository;
@@ -140,7 +140,7 @@ namespace UserProfileDemo.Core.ViewModels
                 Id = UserProfileDocId,
                 Name = Name,
                 Email = Email,
-                Address = Address, 
+                Address = Address,
                 ImageData = ImageData
             };
 
@@ -158,6 +158,7 @@ namespace UserProfileDemo.Core.ViewModels
 
         async Task SelectImage()
         {
+
             var imageData = await MediaService.PickPhotoAsync();
 
             if (imageData != null)
