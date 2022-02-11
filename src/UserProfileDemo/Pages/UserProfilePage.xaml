@@ -7,7 +7,7 @@
     Title="Your Profile"
     BackgroundColor="White">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
+        <ToolbarItem Order="Primary" Text="Save" Command="{Binding SaveCommand}" Priority="0" />
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,6 +15,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
+        
         <Grid Margin="15,25,15,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width=".25*" />
@@ -30,13 +31,13 @@
             <StackLayout Grid.Row="0" Grid.ColumnSpan="2" Spacing="5" Margin="0,0,0,20">
                  <Image Source="{Binding ImageData, Converter={StaticResource byteToImageSource}}"
                                  Aspect="AspectFit" WidthRequest="300" HeightRequest="200" HorizontalOptions="Center" />
-                 <Button Text="Upload Image" Command="{Binding SelectImageCommand}" HorizontalOptions="Center" />
+                 <Button Text="Upload Image" Command="{Binding SelectImageCommand}" HorizontalOptions="Center" BackgroundColor="{OnPlatform UWP=Black}" TextColor="{OnPlatform UWP=White}" />
             </StackLayout>
-            <Label Grid.Row="1" Grid.Column="0" Text="Name:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="0" Text="Name:" HorizontalOptions="End" VerticalOptions="Center" TextColor="{OnPlatform UWP=Black}" />
             <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center"  />
-            <Label Grid.Row="2" Grid.Column="0" Text="Email:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Label Grid.Row="2" Grid.Column="0" Text="Email:" HorizontalOptions="End" VerticalOptions="Center" TextColor="{OnPlatform UWP=Black}" />
             <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Email}" VerticalOptions="Center" IsEnabled="false" />
-            <Label Grid.Row="3" Grid.Column="0" Text="Address:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Label Grid.Row="3" Grid.Column="0" Text="Address:" HorizontalOptions="End" VerticalOptions="Center" TextColor="{OnPlatform UWP=Black}" />
             <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Address}" VerticalOptions="Center" />
             <Button Grid.Row="4" Grid.ColumnSpan="2" Text="Logout" Command="{Binding LogoutCommand}" 
                     TextColor="Red" VerticalOptions="End" HorizontalOptions="Center" />
