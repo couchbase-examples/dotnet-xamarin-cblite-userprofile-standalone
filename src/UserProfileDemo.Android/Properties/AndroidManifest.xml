@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.couchbase.userprofiledemo">
-	<uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
-	<application android:label="UserProfileDemo.Android">
-		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.couchbase.userprofiledemo" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="30" />
+	<application android:label="UserProfileDemo.Android" android:icon="@drawable/icon">
+		<provider android:name="androidx.core.content.FileProvider" android:authorities="com.couchbase.userprofiledemo.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
 	</application>

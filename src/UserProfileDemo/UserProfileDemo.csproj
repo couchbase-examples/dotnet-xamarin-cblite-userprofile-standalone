@@ -11,9 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Couchbase.Lite.Enterprise" Version="3.0.0-beta02" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
@@ -28,5 +29,6 @@
     <None Remove="Converters\ByteToImageFieldConverter.xml" />
     <None Remove="Couchbase.Lite" />
     <None Remove="Couchbase.Lite.Enterprise" />
+    <None Remove="Xamarin.Essentials" />
   </ItemGroup>
 </Project>

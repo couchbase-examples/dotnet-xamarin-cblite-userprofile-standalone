@@ -12,7 +12,7 @@ namespace UserProfileDemo.Pages
         public UserProfilePage(Action logoutSuccesful)
         {
             InitializeComponent();
-
+           
             // Set up in place of having a dependency on a DI solution
             var userProfileRepository = ServiceContainer.Resolve<IUserProfileRepository>();
             var alertService = ServiceContainer.Resolve<IAlertService>();

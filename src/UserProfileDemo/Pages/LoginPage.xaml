@@ -11,14 +11,14 @@
             <Image Source="icon.png" HorizontalOptions="Center" />
             
             <StackLayout Spacing="10">
-                <Entry x:Name="userNameEntry" Text="{Binding Username}" Placeholder="Username" Keyboard="Email" />
-                <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="true" /> 
+                <Entry AutomationId="eUsername" x:Name="userNameEntry" Text="{Binding Username}" Placeholder="Username" Keyboard="Email" />
+                <Entry AutomationId="ePassword" Text="{Binding Password}" Placeholder="Password" IsPassword="true" /> 
             </StackLayout>
-            
-            <Button Text="Sign In" Command="{Binding SignInCommand}"
+
+            <Button AutomationId="btnSignIn" Text="Sign In" Command="{Binding SignInCommand}"
                     BackgroundColor="#356DB8" TextColor="White"
                     WidthRequest="125" HorizontalOptions="Center" />
-            
+
         </StackLayout>
         
     </ContentPage.Content>

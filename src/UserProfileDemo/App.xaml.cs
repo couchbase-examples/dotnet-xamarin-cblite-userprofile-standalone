@@ -34,7 +34,16 @@ namespace UserProfileDemo
             ServiceContainer.Register<IUserProfileRepository>(() => new UserProfileRepository());
         }
 
-        void OnSignInSuccessful() => MainPage = new NavigationPage(new UserProfilePage(OnLogoutSuccesful));
+        void OnSignInSuccessful()
+        {
+            var navPage = new NavigationPage(new UserProfilePage(OnLogoutSuccesful));
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                navPage.BarBackgroundColor = Color.Black;
+                navPage.BarTextColor = Color.White;
+            }
+            MainPage = navPage;
+        }
 
         void OnLogoutSuccesful() => MainPage = new LoginPage(OnSignInSuccessful);
     }

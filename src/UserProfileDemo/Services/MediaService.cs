@@ -1,7 +1,9 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using Plugin.Media;
+using Xamarin.Essentials;
+
 using UserProfileDemo.Core.Services;
+using Xamarin.Forms;
 
 namespace UserProfileDemo.Services
 {
@@ -9,8 +11,33 @@ namespace UserProfileDemo.Services
     {
         public async Task<byte[]> PickPhotoAsync()
         {
-            var result = await CrossMedia.Current.PickPhotoAsync();
-            return result != null ? GetBytesFromStream(result.GetStream()) : null;
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                var status = await Permissions.RequestAsync<Permissions.Media>();
+                if (status == PermissionStatus.Granted)
+                {
+                    return await GetPhotoFromMedia();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return await GetPhotoFromMedia();
+            }
+        }
+
+        private async Task<byte[]> GetPhotoFromMedia()
+        {
+            var result = await Xamarin.Essentials.MediaPicker.PickPhotoAsync();
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+                return result != null ? GetBytesFromStream(stream) : null;
+            }
+            return null;
         }
 
         byte[] GetBytesFromStream(Stream stream)
