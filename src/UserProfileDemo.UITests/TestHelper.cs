@@ -16,7 +16,7 @@ namespace UserProfileDemo.UITests
         public static string SIGNINBUTTON = "btnSignIn";
         public static string SIGNOUTBUTTON = "btnSignOut";
         public static string SAVEBUTTON = "btnSave";
-        public static string OKBUTTONANDROID = "OK";
+        public static string OKBUTTON = "OK";
         public static string PROFILEHEADER = "Your Profile";
     }
 

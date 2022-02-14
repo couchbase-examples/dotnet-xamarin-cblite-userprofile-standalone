@@ -27,7 +27,7 @@ namespace UserProfileDemo.UITests
 
         [Test]
         public void SaveDataTest()
-        { 
+        {
             //Arrange
             Login(TestData.TESTUSER1, TestData.TESTPASSWORD);
 
@@ -53,7 +53,7 @@ namespace UserProfileDemo.UITests
         private void ValidateProfileValues(string fullName, string address)
         {
             app.WaitForElement(c => c.Text(TestHelper.PROFILEHEADER));
-            
+
             var nameValue = app.Query(c => c.Marked(TestHelper.NAMEFIELD)).FirstOrDefault().Text;
             var addressValue = app.Query(c => c.Marked(TestHelper.ADDRESSFIELD)).FirstOrDefault().Text;
             Assert.AreEqual(fullName, nameValue);
@@ -66,21 +66,22 @@ namespace UserProfileDemo.UITests
 
             app.Screenshot("Your Profile Before");
             app.ClearText(c => c.Marked(TestHelper.NAMEFIELD));
+            app.DismissKeyboard();
             app.ClearText(c => c.Marked(TestHelper.ADDRESSFIELD));
+            app.DismissKeyboard();
 
             app.EnterText(c => c.Marked(TestHelper.NAMEFIELD), TestData.TESTNAME);
+            app.DismissKeyboard();
             app.EnterText(c => c.Marked(TestHelper.ADDRESSFIELD), TestData.TESTADDRESS);
+            app.DismissKeyboard();
 
             //todo - add image selection support
-            
+
             app.Tap(c => c.Marked(TestHelper.SAVEBUTTON));
             app.DismissKeyboard();
 
-            if (platform == Platform.Android)
-            {
-                app.WaitForElement(c => c.Text(TestHelper.OKBUTTONANDROID));
-                app.Tap(c => c.Marked(TestHelper.OKBUTTONANDROID));
-            }
+            app.WaitForElement(c => c.Text(TestHelper.OKBUTTON));
+            app.Tap(c => c.Marked(TestHelper.OKBUTTON));
         }
 
         private void Login(string username, string password)
