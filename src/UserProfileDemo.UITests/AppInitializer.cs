@@ -43,8 +43,9 @@ namespace UserProfileDemo.UITests
             //path = $"{path}UserProfileDemo.iOS/bin/iPhoneSimulator/debug/UserProfileDemo.iOS.app";
             return ConfigureApp
                 .iOS
-                .DeviceIdentifier("6BF159BD-E4DB-4073-8957-CB9E04D584D5") //uncomment for testing on local simulator
-                .PreferIdeSettings()
+                //uncomment for testing on local simulator
+                //DeviceIdentifier("6BF159BD-E4DB-4073-8957-CB9E04D584D5") 
+                //PreferIdeSettings()
                 .Debug()
                 .WaitTimes(new WaitTimes())
                 //.AppBundle(path)
