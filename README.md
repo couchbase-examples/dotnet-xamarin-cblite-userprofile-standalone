@@ -14,7 +14,7 @@ To run this prebuilt project, you will need:
 - For Android development SDK version 22 or higher
 - For UWP development, a Windows computer running Windows 10 1903 or higher
 - Visual Studio for [Mac](https://visualstudio.microsoft.com/vs/mac/) or [PC](https://visualstudio.microsoft.com/vs/)
-- 
+
 ### Installing Couchbase Lite Framework
 
 The [Couchbase Documentation](https://docs.couchbase.com/couchbase-lite/3.0/csharp/gs-install.html) has examples on how to add Couchbase Lite via nuget package.
