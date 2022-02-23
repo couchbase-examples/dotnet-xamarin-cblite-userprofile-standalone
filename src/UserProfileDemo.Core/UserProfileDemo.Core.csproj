@@ -20,6 +20,6 @@
     <None Remove="Couchbase.Lite.Enterprise" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Couchbase.Lite.Enterprise" Version="3.0.0-beta02" />
+    <PackageReference Include="Couchbase.Lite.Enterprise" Version="3.0.0" />
   </ItemGroup>
 </Project>
