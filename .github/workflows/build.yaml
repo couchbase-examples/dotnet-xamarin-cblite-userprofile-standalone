@@ -16,7 +16,7 @@ jobs:
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.14 --android=11.2
    # must manually select XCode version - docs doesn't show this version but looking at issue #4769 it says it's supported.
-   #https://github.com/actions/virtual-environments/issues/4769
+   # https://github.com/actions/virtual-environments/issues/4769
     - name: Set default Xcode 13.2.1
       run: |
         XCODE_ROOT=/Applications/Xcode_13.2.1.app
