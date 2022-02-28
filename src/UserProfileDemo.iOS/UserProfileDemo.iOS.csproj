@@ -31,7 +31,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-<CodesignKey>iPhone Developer</CodesignKey>
+<CodesignKey>Apple Development: Aaron LaBeau (VPB6C99W55)</CodesignKey>
 <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -54,12 +54,11 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>Apple Distribution: Couchbase, Inc. (N2Q372V7W2)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <BuildIpa>true</BuildIpa>
-    <CodesignProvision>Automatic</CodesignProvision>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
     <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
