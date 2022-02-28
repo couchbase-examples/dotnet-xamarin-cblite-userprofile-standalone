@@ -29,7 +29,7 @@ jobs:
 # msbuild requires the keystore be in a file instead of base64, so we need to create a keystore file with the results we have saved in the secretes
     - name: Setup Android signing 
       run: |
-        (echo ${{secrets.SIGNING_KEY_BASE64}} | base64 — decode) > src/UserProfileDemo.Android/keystore.jks
+        (echo ${{secrets.SIGNING_KEY_BASE64}} | base64 —decode) > src/UserProfileDemo.Android/keystore.jks
 # AppCenter requires a new build number when we build to upload to app center so we know which build works and fails, this updates the build number
     - name: Update iOS Version 
       run: |
