@@ -13,10 +13,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # see what's supported here -  https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md
-    - name: Set default Xamarin SDK versions
+# stupid GitHub runners don't have the latest version of Xamarin iOS on them and we are hitting a forms bug -  going to have to use boots to install mono and Xamarin - see: https://github.com/jonathanpeppers/boots
+    - name: install boots and Xamarin
+      shell: bash
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.14 --android=12.2
+        export PATH="$PATH:~/.dotnet/tools"
+        dotnet tool install --global boots
+        boots --stable Mono
+        boots --stable Xamarin.Android 
+        boots --stable Xamarin.iOS 
+
    # must manually select XCode version - docs doesn't show this version but looking at issue #4769 it says it's supported.
    # https://github.com/actions/virtual-environments/issues/4769
 
