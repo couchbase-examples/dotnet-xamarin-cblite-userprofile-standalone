@@ -45,7 +45,7 @@ jobs:
 # installs dependencies for older versions of .NET before standard/core
     - name: Install dependencies for Mono Projects
       run: |
-        nuget restore src/UserProfileDemo.sln
+        nuget restore src/UserProfileDemoTests.sln
 # have to restore dotnet core projects seperately using dotnet command line
     - name: Install dependencies for Core Project 
       run: |
