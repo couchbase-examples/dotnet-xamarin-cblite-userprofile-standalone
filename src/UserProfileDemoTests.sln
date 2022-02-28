@@ -16,8 +16,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserProfileDemo.Repositorie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserProfileDemo.Android", "UserProfileDemo.Android\UserProfileDemo.Android.csproj", "{F9F756A0-9366-44C1-97E2-26E3D6F76987}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserProfileDemo.UWP", "UserProfileDemo.UWP\UserProfileDemo.UWP.csproj", "{8808D9CE-CDEB-43AA-BE1A-05766A865FC6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{041BEB52-D2E4-421C-AB3B-C55AFDB45637}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserProfileDemo.UITests", "UserProfileDemo.UITests\UserProfileDemo.UITests.csproj", "{37127E47-0BF5-49F1-98D5-46581A6D8927}"
