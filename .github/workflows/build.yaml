@@ -1,8 +1,6 @@
 # docs taken from: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-xamarin-applications
-
 name: Builds
 
-# Trigger
 on:
   workflow_dispatch:
   push:
@@ -37,7 +35,8 @@ jobs:
 
 # msbuild requires the keystore be in a file instead of base64, so we need to create a keystore file with the results we have saved in the secretes
     - name: Setup Android signing 
-      run: (echo ${{secrets.SIGNING_KEY_BASE64}} | base64 — decode) > ./src/UserProfileDemo.Android/keystore.jks
+      run: |
+        (echo ${{secrets.SIGNING_KEY_BASE64}} | base64 — decode) > ./src/UserProfileDemo.Android/keystore.jks
 
 # AppCenter requires a new build number when we build to upload to app center so we know which build works and fails, this updates the build number
     - name: Update iOS Version 
@@ -55,37 +54,47 @@ jobs:
 
 # installs dependencies for older versions of .NET before standard/core
     - name: Install dependencies for Mono Projects
-      run: nuget restore ./src/UserProfileDemo.sln
+      run: |
+        nuget restore ./src/UserProfileDemo.sln
 
 # have to restore dotnet core projects seperately using dotnet command line
     - name: Install dependencies for Core Project 
-      run: dotnet restore ./src/UserProfileDemo.Core/UserProfileDemo.Core.csproj
+      run: |
+        dotnet restore ./src/UserProfileDemo.Core/UserProfileDemo.Core.csproj
 
     - name: Install dependencies for Xamarin Forms Project 
-      run: dotnet restore ./src/UserProfileDemo/UserProfileDemo.csproj
+      run: |
+        dotnet restore ./src/UserProfileDemo/UserProfileDemo.csproj
 
     - name: Install dependencies for Repositories 
-      run: dotnet restore ./src/UserProfileDemo.Repositories/UserProfileDemo.Repositories.csproj
+      run: |
+        dotnet restore ./src/UserProfileDemo.Repositories/UserProfileDemo.Repositories.csproj
 
 # can't build from solution due to UWP - build each standard project seperately then build iOS and then Android
 
     - name: Build Models 
-      run: dotnet build ./src/UserProfileDemo.Models/UserProfileDemo.Models.csproj --configuration Debug --verbosity diag --no-incremental 
+      run: |
+        dotnet build ./src/UserProfileDemo.Models/UserProfileDemo.Models.csproj --configuration Debug --verbosity diag --no-incremental 
 
     - name: Build Core 
-      run: dotnet build ./src/UserProfileDemo.Core/UserProfileDemo.Core.csproj --configuration Debug --verbosity diag 
+      run: |
+        dotnet build ./src/UserProfileDemo.Core/UserProfileDemo.Core.csproj --configuration Debug --verbosity diag 
   
     - name: Build Repositories 
-      run: dotnet build ./src/UserProfileDemo.Repositories/UserProfileDemo.Repositories.csproj --configuration Debug --verbosity diag 
+      run: |
+        dotnet build ./src/UserProfileDemo.Repositories/UserProfileDemo.Repositories.csproj --configuration Debug --verbosity diag 
 
     - name: Build Xamarin Forms 
-      run: dotnet build ./src/UserProfileDemo/UserProfileDemo.csproj --configuration Debug --verbosity diag 
+      run: |
+        dotnet build ./src/UserProfileDemo/UserProfileDemo.csproj --configuration Debug --verbosity diag 
 
     - name: Build iOS
-      run: msbuild ./src/UserProfileDemo.iOS/UserProfileDemo.iOS.csproj /p:Configuration=Debug /p:Platform=iPhone /t:Rebuild -verbosity:diag /p:BuildIpa=true 
+      run: |
+        msbuild ./src/UserProfileDemo.iOS/UserProfileDemo.iOS.csproj /p:Configuration=Debug /p:Platform=iPhone /t:Rebuild -verbosity:diag /p:BuildIpa=true 
 
     - name: Build Android
-      run: msbuild ./src/UserProfileDemo.Android/UserProfileDemo.Android.csproj /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Debug /p:AndroidPackageFormat=apk -verbosity:diag /p:AndroidKeyStore=true  /p:AndroidSigningKeyAlias=${{secrets.KEYSTORE_ALIAS}} /p:AndroidSigningKeyPass=${{secrets.KEY_PASSWORD}} /p:AndroidSigningStorePass=${{secrets.KEYSTORE_PASSWORD}}     -verbosity:diag /p:AndroidSigningKeyStore=keystore.jks -verbosity:diag
+      run: |
+        msbuild ./src/UserProfileDemo.Android/UserProfileDemo.Android.csproj /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Debug /p:AndroidPackageFormat=apk -verbosity:diag /p:AndroidKeyStore=true  /p:AndroidSigningKeyAlias=${{secrets.KEYSTORE_ALIAS}} /p:AndroidSigningKeyPass=${{secrets.KEY_PASSWORD}} /p:AndroidSigningStorePass=${{secrets.KEYSTORE_PASSWORD}}     -verbosity:diag /p:AndroidSigningKeyStore=keystore.jks -verbosity:diag
 
     - name: Upload artifact to App Center for Testing Android
       run: | 
