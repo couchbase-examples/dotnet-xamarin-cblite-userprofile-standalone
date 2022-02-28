@@ -35,6 +35,7 @@ jobs:
     - name: Setup Android signing 
       run: |
         (echo ${{secrets.SIGNING_KEY_BASE64}} | base64 ) > src/UserProfileDemo.Android/keystore.jks
+        
 # iOS Signing Certs required becauase we want to test these on physical devices, the build has to be signed with a developer certifcate and profile - please read this before continuing:  https://docs.github.com/en/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development
 
     - name: Install the Apple certificate and provisioning profile
