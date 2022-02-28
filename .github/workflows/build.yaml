@@ -16,7 +16,7 @@ jobs:
     # see what's supported here -  https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.18 --android=12.2
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.14 --android=12.2
    # must manually select XCode version - docs doesn't show this version but looking at issue #4769 it says it's supported.
    # https://github.com/actions/virtual-environments/issues/4769
 
