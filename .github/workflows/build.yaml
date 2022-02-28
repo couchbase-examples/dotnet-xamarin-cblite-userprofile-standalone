@@ -131,7 +131,7 @@ jobs:
 
     - name: Build UI Tests 
       run: |
-        dotnet build src/UserProfileDemo.UITests/UserProfileDemo.UITests.csproj --configuration Debug --verbosity diag 
+         msbuild src/UserProfileDemo.UITests/UserProfileDemo.UITests.csproj /p:Configuration=Debug -verbosity diag 
 
  # required to clean up certs and profiles in all cases
     - name: Clean up keystore, keychain, and provisioning profile
