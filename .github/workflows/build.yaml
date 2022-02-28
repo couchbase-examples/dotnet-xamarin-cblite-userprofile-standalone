@@ -127,7 +127,7 @@ jobs:
 
     - name: Build Android
       run: |
-        msbuild src/UserProfileDemo.Android/UserProfileDemo.Android.csproj /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Debug /p:AndroidPackageFormat=apk -verbosity:diag /p:AndroidKeyStore=true  /p:AndroidSigningKeyAlias=${{secrets.KEYSTORE_ALIAS}} /p:AndroidSigningKeyPass=${{secrets.KEY_PASSWORD}} /p:AndroidSigningStorePass=${{secrets.KEYSTORE_PASSWORD}}     -verbosity:diag /p:AndroidSigningKeyStore=keystore.jks -verbosity:diag
+        msbuild src/UserProfileDemo.Android/UserProfileDemo.Android.csproj /t:SignAndroidPackage /p:Configuration=Debug /p:AndroidPackageFormat=apk -verbosity:diag /p:AndroidSigningKeyAlias=${{secrets.KEYSTORE_ALIAS}} /p:AndroidSigningKeyPass=${{secrets.KEY_PASSWORD}} /p:AndroidSigningStorePass=${{secrets.KEYSTORE_PASSWORD}} /p:AndroidSigningKeyStore=src/UserProfileDemo.Android/keystore.jks
 
  # required to clean up certs and profiles in all cases
     - name: Clean up keystore, keychain, and provisioning profile
