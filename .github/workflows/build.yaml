@@ -65,7 +65,7 @@ jobs:
         # apply provisioning profile
         mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
         cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
-
+        ls -la ~/Library/MobileDevice/Provisioning\ Profiles
 # AppCenter requires a new build number when we build to upload to app center so we know which build works and fails, this updates the build number
     - name: Update iOS Version 
       run: |
