@@ -151,8 +151,8 @@ jobs:
 
     - name: Run UI Tests in App Center iOS
       run: | 
-        appcenter test run uitest --token "${{secrets.APPCENTER_API_KEY_iOS}}" --app "Couchbase-Inc./UserProfile-Standalone-Xamarin-iOS" --devices "Couchbase-Inc./iOSdevices" --app-path src/UserProfileDemo.iOS/bin/iPhone/Debug/UserProfileDemo.iOS.ipa --test-series "Tests" --locale "en_US" --build-dir src/UserProfileDemo.UITests --uitest-tools-dir src/UserProfileDemo.UITests/bin/Debug
+        appcenter test run uitest --token "${{secrets.APPCENTER_API_KEY_iOS}}" --app "Couchbase-Inc./UserProfile-Standalone-Xamarin-iOS" --devices "Couchbase-Inc./iOSdevices" --app-path src/UserProfileDemo.iOS/bin/iPhone/Debug/UserProfileDemo.iOS.ipa --test-series "Tests" --locale "en_US" --build-dir src/UserProfileDemo.UITests/bin/Debug --uitest-tools-dir src/UserProfileDemo.UITests/bin/Debug
 
     - name: Run UI Tests in App Center Android
       run: | 
-        appcenter test run uitest --token "${{secrets.APPCENTER_API_KEY_ANDROID}}" --app "Couchbase-Inc./UserProfile-Standalone-Xamarin-Android" --devices "Couchbase-Inc./devices" --app-path src/UserProfileDemo.Android/bin/Debug/com.couchbase.userprofiledemo-Signed.apk --test-series "Tests" --locale "en_US" --build-dir src/UserProfileDemo.UITests --uitest-tools-dir src/UserProfileDemo.UITests/bin/Debug
+        appcenter test run uitest --token "${{secrets.APPCENTER_API_KEY_ANDROID}}" --app "Couchbase-Inc./UserProfile-Standalone-Xamarin-Android" --devices "Couchbase-Inc./devices" --app-path src/UserProfileDemo.Android/bin/Debug/com.couchbase.userprofiledemo-Signed.apk --test-series "Tests" --locale "en_US" --build-dir src/UserProfileDemo.UITests/bin/Debug --uitest-tools-dir src/UserProfileDemo.UITests/bin/Debug

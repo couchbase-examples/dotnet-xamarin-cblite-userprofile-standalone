@@ -56,6 +56,7 @@ namespace UserProfileDemo.UITests
 
             var nameValue = app.Query(c => c.Marked(TestHelper.NAMEFIELD)).FirstOrDefault().Text;
             var addressValue = app.Query(c => c.Marked(TestHelper.ADDRESSFIELD)).FirstOrDefault().Text;
+            app.Screenshot("Validate Form Values");
             Assert.AreEqual(fullName, nameValue);
             Assert.AreEqual(address, addressValue);
         }
@@ -76,7 +77,7 @@ namespace UserProfileDemo.UITests
             app.DismissKeyboard();
 
             //todo - add image selection support
-
+            app.Screenshot("Filled Out Form");
             app.Tap(c => c.Marked(TestHelper.SAVEBUTTON));
             app.DismissKeyboard();
 
