@@ -157,3 +157,14 @@ jobs:
     - name: Run UI Tests in App Center Android
       run: | 
         appcenter test run uitest --token "${{secrets.APPCENTER_API_KEY_ANDROID}}" --app "Couchbase-Inc./UserProfile-Standalone-Xamarin-Android" --devices "Couchbase-Inc./devices" --app-path src/UserProfileDemo.Android/bin/Debug/com.couchbase.userprofiledemo-Signed.apk --test-series "Tests" --locale "en_US" --build-dir src/UserProfileDemo.UITests/bin/Debug --uitest-tools-dir src/UserProfileDemo.UITests/bin/Debug
+    - name: Report failures
+      if: always()
+      uses: ravsamhq/notify-slack-action@v1
+      with:
+        status: ${{ job.status }}
+        notify_when: 'failure'
+        notification_title: 'Repo: *{repo}*'
+        message_format: '{emoji}    *{status_message}* in <{repo_url}|{repo}@{branch}> on <{commit_url}|{commit_sha}>'
+        footer: '<{run_url}|View Full Run on GitHub>'
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
