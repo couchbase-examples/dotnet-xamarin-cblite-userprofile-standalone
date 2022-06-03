@@ -1,4 +1,5 @@
 # docs taken from: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-xamarin-applications
+
 name: Builds
 on:
   workflow_dispatch:
@@ -7,7 +8,9 @@ on:
       - main
 jobs:
   build:
+
 # Supported software - https://github.com/actions/virtual-environments/blob/main/images/macos/macos-12-Readme.md
+
     runs-on: macos-latest
     steps:
 
@@ -29,7 +32,7 @@ jobs:
 
     - name: Set default Xcode 
       run: |
-        XCODE_ROOT=/Applications/Xcode.app
+        XCODE_ROOT=/Applications/Xcode_13.4.app
         echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
         sudo xcode-select -s $XCODE_ROOT
 
