@@ -49,7 +49,7 @@ namespace UserProfileDemo.UITests
                 .Debug()
                 .WaitTimes(new WaitTimes())
                 //.AppBundle(path)
-                .InstalledApp("com.couchbase.UserProfileDemo")
+                .InstalledApp("com.couchbase.UserProfileDemo.XamarinStandalone")
                 .StartApp(Xamarin.UITest.Configuration.AppDataMode.Clear);
         }
     }
