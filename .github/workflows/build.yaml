@@ -27,9 +27,9 @@ jobs:
    # must manually select XCode version - docs doesn't show this version but looking at issue #4769 it says it's supported.
    # https://github.com/actions/virtual-environments/issues/4769
 
-    - name: Set default Xcode 13.4
+    - name: Set default Xcode 
       run: |
-        XCODE_ROOT=/Applications/Xcode_13.4.app
+        XCODE_ROOT=/Applications/Xcode.app
         echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
         sudo xcode-select -s $XCODE_ROOT
 
